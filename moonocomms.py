@@ -1,4 +1,5 @@
 import streamlit as st  # type: ignore
+import pandas as pd  # type: ignore
 from io import BytesIO
 
 import base64
