@@ -5,7 +5,6 @@ import base64
 #Making PDF file
 def generate_pdf(name, platform, username, characters_total, character_sheet, color_type, background_info, reference_link, add_note):
     buffer = io.BytesIO()
-    c = canvas.Canvas(buffer, pagesize=landscape(A5))
     width, height = landscape(A5)
 
     #Title
@@ -96,7 +95,7 @@ with st.form("my_form"):
 #Submitted process
 if submit_button:
     if name_input and usr_input and platform and number and multi_select and color_select and background_select and link_input:
-        pdf_bytes=generate_pdf(name_input, platform, usr_input, number, ", ".join(multi_select), color_select, background_select, link_input, note_input)
+        pdf_bytes = generate_pdf(name_input, platform, usr_input, number, ", ".join(multi_select), color_select, background_select, link_input, note_input)
         st.success("Yippee, you did it! Thank you for your order request. Please download your commission order request file and mail it to moonokotiru00@gmail.com!")
         
         #Download button
