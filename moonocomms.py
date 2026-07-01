@@ -1,29 +1,7 @@
-import importlib
-from io import BytesIO
 import streamlit as st  # type: ignore
-
-reportlab = None
-try:
-    reportlab = importlib.import_module("reportlab")
-    print(reportlab.__version__)
-except ModuleNotFoundError:
-    reportlab = None
-
-try:
-    reportlab_canvas = importlib.import_module("reportlab.pdfgen.canvas")
-    reportlab_pagesizes = importlib.import_module("reportlab.lib.pagesizes")
-    canvas = reportlab_canvas
-    A5 = reportlab_pagesizes.A5
-    landscape = reportlab_pagesizes.landscape
-except ModuleNotFoundError:
-    canvas = None
-    A5 = None
-    landscape = None
-
-if canvas is None or A5 is None or landscape is None:
-    st.error("PDF generation requires the 'reportlab' package. Please install it to enable download receipts.")
-    st.stop()
-
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A5, landscape
+from io import BytesIO
 #Making PDF file
 def generate_pdf(name, platform, username, characters_total, character_sheet, color_type, background_info, reference_link, add_note):
     buffer = BytesIO()
