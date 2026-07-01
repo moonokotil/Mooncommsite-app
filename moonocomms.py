@@ -4,10 +4,9 @@ import io
 import base64
 #Making PDF file
 def generate_pdf(name, platform, username, characters_total, character_sheet, color_type, background_info, reference_link, add_note):
-    buffer = io.BytesIO()
-    doc=SimpleDocTemplate(buffer, pagesize=landscsape(A5),
-                          rightMargin=36, leftMargin=36,
-                          topMargin=36, bottomMargin=36)
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer, pagesize=landscape(A5))
+    width, height = landscape(A5)
 
     #Title
     c.setFont("Helvetica-Bold", 16)
