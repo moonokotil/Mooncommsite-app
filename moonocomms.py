@@ -1,7 +1,5 @@
 import importlib
 from io import BytesIO
-import reportlab
-print(reportlab.Version)
 import streamlit as st  # type: ignore
 
 try:
