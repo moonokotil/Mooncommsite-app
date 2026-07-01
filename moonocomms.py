@@ -1,4 +1,6 @@
 import importlib
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A5, landscape
 from io import BytesIO
 
 import streamlit as st  # type: ignore
