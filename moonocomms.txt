@@ -1,7 +1,8 @@
 import streamlit as st  # type: ignore
-from reportlab.pdfgen.canvas import Canvas
+from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A5, landscape
 from io import BytesIO
+
 #Making PDF file
 def generate_pdf(name, platform, username, characters_total, character_sheet, color_type, background_info, reference_link, add_note):
     buffer = BytesIO()
