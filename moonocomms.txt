@@ -1,8 +1,9 @@
 import streamlit as st  # type: ignore
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import A5, landscape
+from reportlab.pdfgen import canvas  # type: ignore
+from reportlab.lib.pagesizes import A5, landscape  # type: ignore
 from io import BytesIO
 
+import base64
 #Making PDF file
 def generate_pdf(name, platform, username, characters_total, character_sheet, color_type, background_info, reference_link, add_note):
     buffer = BytesIO()
@@ -103,16 +104,17 @@ if submit_button:
         #Download button
         st.download_button(label="📩Download Receipt", data=pdf_bytes, file_name=f"Mooncomms_Order_Submit_{name_input.replace(' ', '_')}.pdf", mime="application/pdf")
         st.balloons()
+        st.write("*Please read and follow the next instructions to complete your commission order request*:")
+        st.write("*1. Download the PDF file.*")
+        st.write("*2. Send the PDF file to my 📧email: moonokotiru00@gmail.com*")
+        st.write("*3. Please kindly wait for my reply and confirmation of your commission order request.*")
+        st.write("*4. If I accept your request, I will contact you to discuss the details.*")
+        st.write("*5. If I decline your request, I will also contact you from email to explain the reason.*")
+        st.write("*6. Please do not change your username or contact info after submitting the request, as it may cause communication issues.*")
+        st.write("*7. Please be patient and respectful during the commission process. Thank you for your understanding and cooperation ⸜(｡˃ ᵕ ˂ )⸝♡!*")
     else: 
         st.error("Please fill in all required fields before submitting your commission order request!")
-    st.write("*Please read and follow the next instructions to complete your commission order request*:")
-    st.write("*1. Download the PDF file.*")
-    st.write("*2. Send the PDF file to my 📧email: moonokotiru00@gmail.com*")
-    st.write("*3. Please kindly wait for my reply and confirmation of your commission order request.*")
-    st.write("*4. If I accept your request, I will contact you to discuss the details.*")
-    st.write("*5. If I decline your request, I will also contact you from email to explain the reason.*")
-    st.write("*6. Please do not change your username or contact info after submitting the request, as it may cause communication issues.*")
-    st.write("*7. Please be patient and respectful during the commission process. Thank you for your understanding and cooperation ⸜(｡˃ ᵕ ˂ )⸝♡!*")
+    
 #Social media links
 st.logo(
     image="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png",
