@@ -1,5 +1,4 @@
 import streamlit as st  # type: ignore
-from reportlab.pdfgen import canvas  # type: ignore
 from reportlab.lib.pagesizes import A5, landscape  # type: ignore
 from io import BytesIO
 
