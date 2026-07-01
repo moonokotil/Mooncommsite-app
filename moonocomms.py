@@ -2,6 +2,13 @@ import importlib
 from io import BytesIO
 import streamlit as st  # type: ignore
 
+reportlab = None
+try:
+    reportlab = importlib.import_module("reportlab")
+    print(reportlab.__version__)
+except ModuleNotFoundError:
+    reportlab = None
+
 try:
     reportlab_canvas = importlib.import_module("reportlab.pdfgen.canvas")
     reportlab_pagesizes = importlib.import_module("reportlab.lib.pagesizes")
