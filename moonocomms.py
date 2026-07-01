@@ -4,7 +4,7 @@ import io
 import base64
 #Making PDF file
 def generate_pdf(name, platform, username, characters_total, character_sheet, color_type, background_info, reference_link, add_note):
-    buffer = BytesIO()
+    buffer = io.BytesIO()
     c = canvas.Canvas(buffer, pagesize=landscape(A5))
     width, height = landscape(A5)
 
